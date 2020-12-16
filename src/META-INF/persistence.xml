@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+     http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="CadPedido">
+
+        <!-- provedor/implementacao do JPA -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- entidade mapeada-->
+
+        <class>main.java.model.Cliente</class>
+        <class>main.java.model.Pedido</class>
+        <class>main.java.model.Produto</class>
+
+
+        <properties>
+
+            <!-- dados da conexao -->
+            <property name="hibernate.connection.url"
+                      value="jdbc:firebirdsql:localhost/3050:banco.fdb?charSet=UTF-8" />
+            <property name="hibernate.connection.password" value="masterkey" />
+            <property name="hibernate.connection.username" value="sysdba" />
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.FirebirdDialect" />
+            <property name="hibernate.connection.driver_class"
+                      value="org.firebirdsql.jdbc.FBDriver" />
+
+
+            <!--  propriedades do hibernate -->
+            <property name="hibernate.dialect.storage_engine" value="innodb"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <!--  atualiza o banco, gera as tabelas se for preciso -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            <!-- Configuring Connection Pool -->
+            <property name="hibernate.c3p0.min_size" value="5" />
+            <property name="hibernate.c3p0.max_size" value="20" />
+            <property name="hibernate.c3p0.timeout" value="500" />
+            <property name="hibernate.c3p0.max_statements" value="50" />
+            <property name="hibernate.c3p0.idle_test_period" value="2000" />
+        </properties>
+    </persistence-unit>
+</persistence>
