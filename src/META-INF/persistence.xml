@@ -19,17 +19,15 @@
 
 
         <properties>
-
             <!-- dados da conexao -->
-            <property name="hibernate.connection.url"
-                      value="jdbc:firebirdsql:localhost/3050:banco.fdb?charSet=UTF-8" />
-            <property name="hibernate.connection.password" value="masterkey" />
-            <property name="hibernate.connection.username" value="sysdba" />
-            <property name="hibernate.dialect"
-                      value="org.hibernate.dialect.FirebirdDialect" />
-            <property name="hibernate.connection.driver_class"
-                      value="org.firebirdsql.jdbc.FBDriver" />
-
+            <property name="javax.persistence.jdbc.driver"
+                      value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/pedido?useTimezone=true&amp;serverTimezone =UTC"/>
+            <property name="javax.persistence.jdbc.user"
+                      value="root"/>
+            <property name="javax.persistence.jdbc.password"
+                      value=""/>
 
             <!--  propriedades do hibernate -->
             <property name="hibernate.dialect.storage_engine" value="innodb"/>

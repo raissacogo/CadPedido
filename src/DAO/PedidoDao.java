@@ -24,12 +24,12 @@ public class PedidoDao implements DAO<Pedido> {
         }finally {
             this.entityManager.close();
         }
-        return null;
+        return pedido;
     }
 
     @Override
     public List <Pedido>getList() {
-        Query query = this.entityManager.createQuery("select c from Pedido as p");
+        Query query = this.entityManager.createQuery("select p from Pedido as p");
         return query.getResultList();
 
     }

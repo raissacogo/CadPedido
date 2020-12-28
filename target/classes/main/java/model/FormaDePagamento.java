@@ -1,5 +1,6 @@
 package main.java.model;
 
+
 public enum FormaDePagamento {
     CREDITO,
     DEBITO,

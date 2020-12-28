@@ -13,7 +13,7 @@ public class Cliente {
     private String endereco;
     private String telefone;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente")
     private List<Pedido> pedidos;
 
     public List<Pedido> getPedidos() {

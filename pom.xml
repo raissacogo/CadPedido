@@ -34,31 +34,31 @@
     </build>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.4.12.Final</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>5.4.12.Final</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0 -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-c3p0</artifactId>
             <version>5.4.12.Final</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
-            <groupId>org.firebirdsql.jdbc</groupId>
-            <artifactId>jaybird-jdk18</artifactId>
-            <version>3.0.5</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.19</version>
         </dependency>
-
-
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
 
     </dependencies>
 

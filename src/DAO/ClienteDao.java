@@ -23,7 +23,7 @@ public class ClienteDao implements DAO<Cliente> {
         } finally {
             this.entityManager.close();
         }
-        return null;
+        return cliente;
     }
 
     @Override
@@ -56,14 +56,14 @@ public class ClienteDao implements DAO<Cliente> {
         Cliente cliente = null;
         try {
             cliente = entityManager.find(Cliente.class, id);
-            if(cliente.getPedidos() == null){
+            //if(cliente.getPedidos() == null){
                 this.entityManager.getTransaction().begin();
                 this.entityManager.remove(cliente);
                 this.entityManager.getTransaction().commit();
-            } else {
-                // TODO: Throw exception here!!
-                System.out.println("Nao eh possivel apagar um cliente vinculado a um pedido");
-            }
+//            } else {
+//                // TODO: Throw exception here!!
+//                System.out.println("Nao eh possivel apagar um cliente vinculado a um pedido");
+//            }
 
         } catch (Exception exception) {
             this.entityManager.getTransaction().rollback();

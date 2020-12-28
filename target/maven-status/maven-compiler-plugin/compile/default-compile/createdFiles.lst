@@ -1,4 +1,10 @@
-main\java\model\Cliente.class
-main\java\model\Produto.class
+connection\ConnectionFactory.class
 main\java\model\FormaDePagamento.class
 main\java\model\Pedido.class
+DAO\PedidoDao.class
+main\java\model\Teste.class
+DAO\ClienteDao.class
+main\java\model\Cliente.class
+main\java\model\Produto.class
+DAO\ProdutoDao.class
+DAO\DAO.class

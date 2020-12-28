@@ -10,12 +10,20 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @ManyToOne
+    private Cliente cliente;
 
-    @OneToOne (cascade = CascadeType.REMOVE, mappedBy = "pedido")
-    private Cliente cliente;/*chama a classe cliente */
+    @OneToMany (cascade = CascadeType.REMOVE, mappedBy = "pedido")
+    private List<Produto> produtoList;//* Cria uma lista de produto, possibilitando que  + de 1 seja cadastrado*/
 
-    @OneToMany (cascade = CascadeType.ALL, mappedBy = "pedido")
-    private List<Produto> produtoList; /* Cria uma lista de produto, possibilitando que  + de 1 seja cadastrado*/
+    public List<Produto> getProdutoList() {
+        return produtoList;
+    }
+
+    public void setProdutoList(List<Produto> produtoList) {
+        this.produtoList = produtoList;
+    }
+
     private FormaDePagamento formaDePagamento; /*chama a classe forma de pagamento */
     private int quantidade;
     private float valorUnitario;
@@ -29,22 +37,6 @@ public class Pedido {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public List<Produto> getProdutoList() {
-        return produtoList;
-    }
-
-    public void setProdutoList(List<Produto> produtoList) {
-        this.produtoList = produtoList;
     }
 
     public FormaDePagamento getFormaDePagamento() {
@@ -80,16 +72,24 @@ public class Pedido {
         //verificar o valor Total, por serem mais produtos cadastrados.
     }
 
-    @Override
-    public String toString() {
-        return "Pedido{" +
-                "id=" + id +
-                ", cliente=" + cliente +
-                ", produtoList=" + produtoList +
-                ", formaDePagamento=" + formaDePagamento +
-                ", quantidade=" + quantidade +
-                ", valorUnitario=" + valorUnitario +
-                ", valorTotal=" + valorTotal +
-                '}';
+    public Cliente getCliente() {
+        return cliente;
     }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    //    @Override
+//    public String toString() {
+//        return "Pedido{" +
+//                "id=" + id +
+//                ", cliente=" + cliente +
+//                ", produtoList=" + produtoList +
+//                ", formaDePagamento=" + formaDePagamento +
+//                ", quantidade=" + quantidade +
+//                ", valorUnitario=" + valorUnitario +
+//                ", valorTotal=" + valorTotal +
+//                '}';
+//    }
 }

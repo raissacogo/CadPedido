@@ -9,21 +9,21 @@ import java.util.List;
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String tipoProduto;
     private String sabor;
     private int quantidade;
     private float valorCusto;
     private float valorUnitario;
 
-    @OneToMany
-    private List<Pedido> produtoList;
+    @ManyToOne
+    private Pedido pedido;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -67,12 +67,12 @@ public class Produto {
         this.valorUnitario = valorUnitario;
     }
 
-    public List<Pedido> getProdutoList() {
-        return produtoList;
+    public Pedido getPedido() {
+        return pedido;
     }
 
-    public void setProdutoList(List<Pedido> produtoList) {
-        this.produtoList = produtoList;
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
     @Override
