@@ -6,6 +6,7 @@ import java.util.List;
 @Entity
 @Table(name = "pedido")
 public class Pedido {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -16,6 +17,13 @@ public class Pedido {
     @OneToMany (cascade = CascadeType.REMOVE, mappedBy = "pedido")
     private List<Produto> produtoList;//* Cria uma lista de produto, possibilitando que  + de 1 seja cadastrado*/
 
+    private FormaDePagamento formaDePagamento; /*chama a classe forma de pagamento */
+    private int quantidade;
+    private float valorUnitario;
+    private float valorTotal;
+
+
+
     public List<Produto> getProdutoList() {
         return produtoList;
     }
@@ -24,10 +32,7 @@ public class Pedido {
         this.produtoList = produtoList;
     }
 
-    private FormaDePagamento formaDePagamento; /*chama a classe forma de pagamento */
-    private int quantidade;
-    private float valorUnitario;
-    private float valorTotal;
+
 
     //não é possivel cadastrar um pedido sem o cliente e sem o produto.
 

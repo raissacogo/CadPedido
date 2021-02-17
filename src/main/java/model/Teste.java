@@ -3,6 +3,8 @@ package main.java.model;
 import DAO.ClienteDao;
 import DAO.PedidoDao;
 import DAO.ProdutoDao;
+import main.java.control.PedidoController;
+import main.java.control.ProdutoController;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,15 +13,17 @@ import java.util.List;
 public class Teste {
     public static void main(String[] args) {
 
-       // saveClienteWithPedido();
+        ClienteDao clienteDao = new ClienteDao();
+        Cliente cliente  = clienteDao.findById(2l);
+        ProdutoDao produtoDao = new ProdutoDao();
+        Produto produto = produtoDao.findById(4l);
 
-        //saveProduto();
-
-        ligarProdutoaPedido();
+        PedidoController pedidoController = new PedidoController();
+        pedidoController.savePedido(cliente,Arrays.asList(produto),FormaDePagamento.CREDITO,1,2.00f,30f);
 
     }
 
-    public static void saveClienteWithPedido(){
+    public static void saveClienteWithPedido() {
         Pedido pedido = new Pedido();
         pedido.setQuantidade(100);
         pedido.setValorUnitario(5);
@@ -41,7 +45,7 @@ public class Teste {
         clienteDao.save(cliente);
     }
 
-    public static void updateClienteWithPedido(){
+    public static void updateClienteWithPedido() {
         ClienteDao clienteDao = new ClienteDao();
         Cliente cliente = clienteDao.findById(5l);
 
@@ -59,7 +63,7 @@ public class Teste {
         clienteDao.update(cliente);
     }
 
-    public static void saveProduto(){
+    public static void saveProduto() {
         Produto produto = new Produto();
         produto.setQuantidade(3);
         produto.setSabor("Brigadeiro");
@@ -72,7 +76,7 @@ public class Teste {
 
     }
 
-    public static void ligarProdutoaPedido(){
+    public static void ligarProdutoaPedido() {
 
         ProdutoDao produtoDao = new ProdutoDao();
         Produto produto = produtoDao.findById(4l);
@@ -81,7 +85,7 @@ public class Teste {
         Pedido pedido = pedidoDao.findById(3l);
 
         produto.setPedido(pedido);
-        pedido.setProdutoList(Arrays.asList (produto));
+        pedido.setProdutoList(Arrays.asList(produto));
 
         pedidoDao.update(pedido);
         produtoDao.update(produto);
